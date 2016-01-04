@@ -1,0 +1,62 @@
+<?php /* @var $block Thienphucvx\Sample\Block\Crud */ ?>
+<form class="form crud" width="60%"
+      action="<?php /* @escapeNotVerified */ echo $block->getFormAction(); ?>"
+      id="crud-form"
+      method="post"
+      data-hasrequired="<?php /* @escapeNotVerified */ echo __('* Required Fields') ?>"
+      data-mage-init='{"validation":{}}'>
+    <fieldset class="fieldset">
+
+        <div class="field name required" style="">
+            <label class="label" for="title"><span><?php /* @escapeNotVerified */ echo __('Title') ?></span></label>
+            <div class="control">
+                <input name="title" id="title" title="<?php /* @escapeNotVerified */ echo __('Title') ?>" value="" class="input-text" type="text" data-validate="{required:true}"/>
+            </div>
+        </div>
+        <div class="field comment required" style="/*display: inline-block;width: 300px; margin :20px 10px;*/">
+            <label class="label" for="content"><span><?php /* @escapeNotVerified */ echo __('Content of Blog') ?></span></label>
+            <div class="control">
+                <textarea name="content" id="content" title="<?php /* @escapeNotVerified */ echo __('Content of Blog') ?>" class="input-text" cols="5" rows="3" data-validate="{required:true}"></textarea>
+            </div>
+        </div>
+        <div class="actions-toolbar" style="">
+            <div class="primary">
+                <input type="hidden" name="hideit" id="hideit" value="" />
+                <button type="submit" title="<?php /* @escapeNotVerified */ echo __('Create') ?>" class="action submit primary">
+                    <span><?php /* @escapeNotVerified */ echo __('Create') ?></span>
+                </button>
+            </div>
+        </div>
+    </fieldset>
+
+</form>
+
+<div class="container">
+    <div class="row">
+        <h3>Sample CRUD Module</h3>
+    </div>
+    <div class="row">
+        <table class="table table-striped table-bordered" style="width:70%">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Content</th>
+                    <th>Created Atr</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($block->getPosts() as $post):?>
+            <tr>
+                <td><a href="<?php echo $post->getUrl() ?>"><?php echo $post->getTitle() ?></a></td>
+                <td><?php echo $post->getContent(); ?></td>
+                <td><?php echo $post->getCreationTime() ?></td>
+                <td><?php "Edit". "- ". "Delete" ?></td>
+            </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
