@@ -7,3 +7,6 @@ Then run : php bin/magento setup:upgrade
 
 Check new module by accessing this url : yourmagentostore/sample/test/index
 
+
+
+
